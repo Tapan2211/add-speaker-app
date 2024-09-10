@@ -1,0 +1,200 @@
+.App {
+    position: relative;
+    margin: 5rem;
+}
+
+.add-speaker-button {
+    color: #fff;
+    background-color: #e4875d;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+}
+
+.app-speaker-button:hover {
+    cursor: pointer;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 10;
+}
+
+.sidebar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 400px;
+    height: 100%;
+    background-color: white;
+    z-index: 20;
+    transition: transform 0.3s ease;
+    transform: translateX(100%);
+    border-radius: 10px 0 0 10px;
+
+    &.active {
+        transform: translateX(0);
+    }
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px;
+        background-color: #f5f5f5;
+        border-bottom: 1px solid #ddd;
+        font-weight: 500;
+        border-radius: 10px 0 0 0;
+    }
+
+    .close-button {
+        background: none;
+        border: none;
+        font-size: 12px;
+        cursor: pointer;
+        font-weight: 500;
+    }
+
+    .search-bar {
+        width: calc(100% - 18%);
+        padding: 10px;
+        padding-left: 40px;
+        margin: 10px;
+        background: url('../assets/search.png') no-repeat;
+        background-size: 20px;
+        background-position: 10px center;
+        background-color: white;
+        border: 1px solid #eee;
+        border-radius: 4px;
+    }
+
+    .search-bar:focus {
+        outline: none;
+        border-color: #e4875d;
+        box-shadow: 0 0 0 2px rgba(228, 135, 93, 0.5);
+    }
+
+    .speaker-list {
+        padding: 10px;
+        overflow-y: auto;
+        max-height: calc(100vh - 200px);
+        font-size: 12px;
+
+
+        .speaker {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: border-color 0.3s;
+            background-color: #fff;
+
+            &.selected {
+                border-color: green;
+            }
+
+            .avatar {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                margin-right: 10px;
+                margin-bottom: 15px;
+                align-items: flex-start;
+            }
+
+            .speaker-details {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                .speaker-name {
+                    font-weight: 500;
+                }
+
+                .speaker-sub-detail {
+                    display: flex;
+                    align-items: center;
+                    font-size: 12px;
+                    color: #666;
+                }
+
+                .edit-option {
+                    padding-top: 10px;
+                    display: flex;
+                    align-items: center;
+                    font-size: 10px;
+                    color: #e4875d;
+
+                    .edit-image {
+                        width: 10px;
+                        height: 10px;
+                        margin-right: 5px;
+                    }
+                }
+            }
+
+            .check-container {
+                display: flex;
+                align-items: center;
+                margin-left: auto;
+                height: 40px;
+                align-items: flex-start;
+
+                .check {
+                    accent-color: green;
+                }
+            }
+        }
+    }
+
+    .actions {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-top: 1px solid #ddd;
+
+        .add-button,
+        .cancel-button {
+            padding: 10px 20px;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+            margin: 5px;
+        }
+
+        .add-button {
+            background-color: #e4875d;
+            color: white;
+
+            &:disabled {
+                background-color: #ccc;
+                cursor: not-allowed;
+            }
+        }
+
+        .cancel-button {
+            background-color: #fcf3ee;
+            color: #e4875d;
+        }
+
+        .create-speaker {
+            color: #e4875d;
+            font-size: 10px;
+            font-weight: 500;
+            margin-right: 20px;
+        }
+    }
+}
